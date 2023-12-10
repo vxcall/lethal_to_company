@@ -28,12 +28,6 @@ namespace lethal_to_company
         console.write_line("Camera is null!");
         return;
       }
-
-      Vector3 screen_foot_pos = world_to_screen(world_position);
-      Vector3 headpos; headpos.x = screen_foot_pos.x; headpos.y = screen_foot_pos.y + 3f; headpos.z = screen_foot_pos.z;
-      float height = headpos.y - screen_foot_pos.y;
-      float width = height / 2f;
-      render.draw_box(screen_foot_pos.x - (width / 2), (float)Screen.height - screen_foot_pos.y - height, width, height, Color.red, 2f);
     }
   }
 }
