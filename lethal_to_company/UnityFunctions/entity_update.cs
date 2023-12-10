@@ -14,6 +14,8 @@ namespace lethal_to_company
       if (entity_update_timer <= 0f)
       {
         enemies = FindObjectsOfType<EnemyAI>();
+        grabbable_objects = FindObjectsOfType<GrabbableObject>();
+
         // You have to open menu to get local player lol
         local_player = HUDManager.Instance.localPlayer;
 

@@ -8,20 +8,20 @@ namespace lethal_to_company
 
     private void assign_camera()
     {
-      camera = local_player.gameplayCamera;
+      camera = local_player.visorCamera;
     }
 
-    private Vector3 world_to_screen(Vector3 worldPosition)
+    private Vector3 world_to_screen(Vector3 world_position)
     {
-      return camera.WorldToScreenPoint(worldPosition);
+      return camera.WorldToScreenPoint(world_position);
     }
 
-    private float distance(Vector3 worldPosition)
+    private float distance(Vector3 world_position)
     {
-      return Vector3.Distance(camera.transform.position, worldPosition);
+      return Vector3.Distance(camera.transform.position, world_position);
     }
 
-    private void esp(Vector3 worldPosition, string text)
+    private void esp(Vector3 world_position)
     {
       if (camera == null)
       {
@@ -29,13 +29,11 @@ namespace lethal_to_company
         return;
       }
 
-      Vector3 pos = world_to_screen(worldPosition);
-      GUI.Label(new Rect(
-          pos.x,
-          Screen.height - pos.y,
-          pos.x + (text.Length * GUI.skin.label.fontSize),
-          Screen.height - pos.y + GUI.skin.label.fontSize * 2),
-        text);
+      Vector3 screen_foot_pos = world_to_screen(world_position);
+      Vector3 headpos; headpos.x = screen_foot_pos.x; headpos.y = screen_foot_pos.y + 3f; headpos.z = screen_foot_pos.z;
+      float height = headpos.y - screen_foot_pos.y;
+      float width = height / 2f;
+      render.draw_box(screen_foot_pos.x - (width / 2), (float)Screen.height - screen_foot_pos.y - height, width, height, Color.red, 2f);
     }
   }
 }

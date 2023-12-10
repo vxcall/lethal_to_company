@@ -11,25 +11,25 @@ namespace lethal_to_company
       set { GUI.color = value; }
     }
 
-    public static void DrawBox(Vector2 position, Vector2 size, Color color, bool centered = true)
+    public static void draw_box(Vector2 position, Vector2 size, Color color, bool centered = true)
     {
       Color = color;
-      DrawBox(position, size, centered);
+      draw_box(position, size, centered);
     }
 
-    public static void DrawBox(Vector2 position, Vector2 size, bool centered = true)
+    public static void draw_box(Vector2 position, Vector2 size, bool centered = true)
     {
       var upperLeft = centered ? position - size / 2f : position;
       GUI.DrawTexture(new Rect(position, size), Texture2D.whiteTexture, ScaleMode.StretchToFill);
     }
 
-    public static void DrawString(Vector2 position, string label, Color color, bool centered = true)
+    public static void draw_string(Vector2 position, string label, Color color, bool centered = true)
     {
       Color = color;
-      DrawString(position, label, centered);
+      draw_string(position, label, centered);
     }
 
-    public static void DrawString(Vector2 position, string label, bool centered = true)
+    public static void draw_string(Vector2 position, string label, bool centered = true)
     {
       var content = new GUIContent(label);
       var size = StringStyle.CalcSize(content);
@@ -39,7 +39,7 @@ namespace lethal_to_company
 
     public static Texture2D lineTex;
 
-    public static void DrawLine(Vector2 pointA, Vector2 pointB, Color color, float width)
+    public static void draw_line(Vector2 pointA, Vector2 pointB, Color color, float width)
     {
       Matrix4x4 matrix = GUI.matrix;
       if (!lineTex)
@@ -60,20 +60,20 @@ namespace lethal_to_company
       GUI.color = color2;
     }
 
-    public static void DrawBox(float x, float y, float w, float h, Color color, float thickness)
+    public static void draw_box(float x, float y, float w, float h, Color color, float thickness)
     {
-      DrawLine(new Vector2(x, y), new Vector2(x + w, y), color, thickness);
-      DrawLine(new Vector2(x, y), new Vector2(x, y + h), color, thickness);
-      DrawLine(new Vector2(x + w, y), new Vector2(x + w, y + h), color, thickness);
-      DrawLine(new Vector2(x, y + h), new Vector2(x + w, y + h), color, thickness);
+      draw_line(new Vector2(x, y), new Vector2(x + w, y), color, thickness);
+      draw_line(new Vector2(x, y), new Vector2(x, y + h), color, thickness);
+      draw_line(new Vector2(x + w, y), new Vector2(x + w, y + h), color, thickness);
+      draw_line(new Vector2(x, y + h), new Vector2(x + w, y + h), color, thickness);
     }
 
-    public static void DrawBoxOutline(Vector2 Point, float width, float height, Color color, float thickness)
+    public static void draw_box_outline(Vector2 Point, float width, float height, Color color, float thickness)
     {
-      DrawLine(Point, new Vector2(Point.x + width, Point.y), color, thickness);
-      DrawLine(Point, new Vector2(Point.x, Point.y + height), color, thickness);
-      DrawLine(new Vector2(Point.x + width, Point.y + height), new Vector2(Point.x + width, Point.y), color, thickness);
-      DrawLine(new Vector2(Point.x + width, Point.y + height), new Vector2(Point.x, Point.y + height), color,
+      draw_line(Point, new Vector2(Point.x + width, Point.y), color, thickness);
+      draw_line(Point, new Vector2(Point.x, Point.y + height), color, thickness);
+      draw_line(new Vector2(Point.x + width, Point.y + height), new Vector2(Point.x + width, Point.y), color, thickness);
+      draw_line(new Vector2(Point.x + width, Point.y + height), new Vector2(Point.x, Point.y + height), color,
         thickness);
     }
   }
