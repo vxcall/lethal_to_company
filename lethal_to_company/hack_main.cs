@@ -46,19 +46,21 @@ namespace lethal_to_company
       GUI.Label(new Rect(100, 80, 500, 30),
         $"{local_player.name} X: {local_player.transform.position.x}, Y: {local_player.transform.position.y}, Z: {local_player.transform.position.z}");
 
-      console.write_line($"{camera.transform.forward}");
-      GUI.Label(new Rect(100, 100, 500, 30), $"{camera.transform.forward.x}{camera.transform.forward.y}{camera.transform.forward.z}" );
+      //GUI.Label(new Rect(100, 50, 500, 30),
+      //  $"Camera X: {camera.transform.position.x}, Y: {camera.transform.position.y}, Z: {camera.transform.position.z}");
 
-      // GUI.Label(new Rect(100, 100, 500, 30), $"items count: {grabbable_objects.Length}");
-      // int index = 1;
-      // foreach (var go in grabbable_objects)
-      // {
-      //   GUI.Label(new Rect(100, 130 + (20 * index), 500, 30),
-      //     $"{go.itemProperties.itemName} X: {go.transform.position.x}, Y: {go.transform.position.y}, Z: {go.transform.position.z}");
-      //   index++;
-      // }
+      //console.write_line($"{camera.transform.forward}");
+      //GUI.Label(new Rect(100, 100, 500, 30), $"{camera.transform.forward.x}{camera.transform.forward.y}{camera.transform.forward.z}" );
 
-      // index = 1;
+      GUI.Label(new Rect(100, 120, 500, 30), $"items count: {grabbable_objects.Length}");
+      int index = 1;
+      foreach (var go in grabbable_objects)
+      {
+        //GUI.Label(new Rect(100, 150 + (20 * index), 500, 30), $"{go.itemProperties.itemName} X: {go.transform.position.x}, Y: {go.transform.position.y}, Z: {go.transform.position.z}");
+        esp(go.transform.position);
+        index++;
+      }
+      index = 1;
 
       // GUI.Label(new Rect(810, 100, 500, 30), $"Enemies count: {enemies.Length}");
       // int index2 = 1;
@@ -96,5 +98,6 @@ namespace lethal_to_company
     private EnemyAI[] enemies;
     private PlayerControllerB local_player;
     private GrabbableObject[] grabbable_objects;
+    private Camera camera;
   }
 }

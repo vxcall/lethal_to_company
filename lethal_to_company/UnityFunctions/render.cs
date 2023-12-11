@@ -21,6 +21,7 @@ namespace lethal_to_company
     {
       var upperLeft = centered ? position - size / 2f : position;
       GUI.DrawTexture(new Rect(position, size), Texture2D.whiteTexture, ScaleMode.StretchToFill);
+      Color = Color.white;
     }
 
     public static void draw_string(Vector2 position, string label, Color color, bool centered = true)

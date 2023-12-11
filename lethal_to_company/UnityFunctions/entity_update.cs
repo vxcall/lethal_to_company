@@ -19,7 +19,7 @@ namespace lethal_to_company
         // You have to open menu to get local player lol
         local_player = HUDManager.Instance.localPlayer;
 
-        assign_camera();
+        camera = local_player.gameplayCamera;
 
         clear_update_timer();
       }
@@ -30,6 +30,10 @@ namespace lethal_to_company
     private void clear_update_timer()
     {
       entity_update_timer = entity_update_interval;
+    }
+    private void assign_camera()
+    {
+      //camera = local_player.gameplayCamera;
     }
   }
 }
