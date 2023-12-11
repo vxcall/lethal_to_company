@@ -1,5 +1,6 @@
 # lethal_to_company
-supposed to be a hack for Lethal Company
+resulting artifacts of my analysis on Lethal Company which is my first try to tackle Unity game.
+any commit'd be welcomed.
 
 Press ESC and open menu once to get GUI rendered because I think is the rendering function kicks in after that.
 
