@@ -1,5 +1,4 @@
-﻿using GameNetcodeStuff;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace lethal_to_company
 {
@@ -19,7 +18,7 @@ namespace lethal_to_company
         // You have to open menu to get local player lol
         local_player = HUDManager.Instance.localPlayer;
 
-        camera = local_player.gameplayCamera;
+        assign_camera();
 
         clear_update_timer();
       }
@@ -33,7 +32,7 @@ namespace lethal_to_company
     }
     private void assign_camera()
     {
-      //camera = local_player.gameplayCamera;
+      camera = local_player.gameplayCamera;
     }
   }
 }

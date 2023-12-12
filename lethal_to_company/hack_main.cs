@@ -42,37 +42,26 @@ namespace lethal_to_company
     // It is called twice per frame: Once for rendering, and once for GUI Events
     public void OnGUI()
     {
+
+
       // Y is player's foot position
-      GUI.Label(new Rect(100, 80, 500, 30),
-        $"{local_player.name} X: {local_player.transform.position.x}, Y: {local_player.transform.position.y}, Z: {local_player.transform.position.z}");
+      //GUI.Label(new Rect(100, 80, 500, 30),
+      //  $"{local_player.name} X: {local_player.transform.position.x}, Y: {local_player.transform.position.y}, Z: {local_player.transform.position.z}");
 
       //GUI.Label(new Rect(100, 50, 500, 30),
       //  $"Camera X: {camera.transform.position.x}, Y: {camera.transform.position.y}, Z: {camera.transform.position.z}");
 
-      //console.write_line($"{camera.transform.forward}");
       //GUI.Label(new Rect(100, 100, 500, 30), $"{camera.transform.forward.x}{camera.transform.forward.y}{camera.transform.forward.z}" );
 
       GUI.Label(new Rect(100, 120, 500, 30), $"items count: {grabbable_objects.Length}");
       int index = 1;
       foreach (var go in grabbable_objects)
       {
-        //GUI.Label(new Rect(100, 150 + (20 * index), 500, 30), $"{go.itemProperties.itemName} X: {go.transform.position.x}, Y: {go.transform.position.y}, Z: {go.transform.position.z}");
+        GUI.Label(new Rect(100, 150 + (20 * index), 500, 30), $"{go.itemProperties.itemName} X: {go.transform.position.x}, Y: {go.transform.position.y}, Z: {go.transform.position.z}");
         esp(go.transform.position);
         index++;
       }
-      index = 1;
 
-      // GUI.Label(new Rect(810, 100, 500, 30), $"Enemies count: {enemies.Length}");
-      // int index2 = 1;
-      // foreach (var enemy in enemies)
-      // {
-      //   GUI.Label(new Rect(810, 100 + (20 * index2), 1000, 30),
-      //     $"{enemy.enemyType.enemyName} X: {enemy.transform.position.x}, Y: {enemy.transform.position.y}, Z: {enemy.transform.position.z}");
-      //   esp(enemy.transform.position);
-      //   index2++;
-      // }
-
-      // index2 = 1;
     }
 
     /* - Physics Method - */

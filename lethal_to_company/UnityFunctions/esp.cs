@@ -4,58 +4,51 @@ namespace lethal_to_company
 {
   partial class hack : MonoBehaviour
   {
-    private Vector3 world_to_screen(Vector3 world_position)
+    private Vector3 world_to_screen(Camera camera, Vector3 world)
     {
-      return camera.WorldToScreenPoint(world_position);
+      Vector3 screen = camera.WorldToViewportPoint(world);
+
+      screen.x *= Screen.width;
+      screen.y *= Screen.height;
+
+      screen.y = Screen.height - screen.y;
+
+      return screen;
     }
 
     private float distance(Vector3 world_position)
     {
-      return Vector3.Distance(local_player.transform.position, world_position);
+      return Vector3.Distance(local_player.gameplayCamera.transform.position, world_position);
     }
 
     private void esp(Vector3 entity_position)
     {
       if (camera == null)
       {
-        console.write_line("Camera is null!");
+        console.write_line("camera is null");
         return;
       }
 
-      Vector3 screenPos = world_to_screen(entity_position);
+      Vector3 screen_pos = world_to_screen(camera, entity_position);
 
-      // Check if entity is in front of the camera
-      if (screenPos.z < 0)
+      if (screen_pos.z < 0)
       {
         return;
       }
 
-      // Normalize screen coordinates (0 to 1)
-      screenPos.x /= Screen.width;
-      screenPos.y /= Screen.height;
+      float distance_to_entity = distance(entity_position);
+      float box_width = 300 / distance_to_entity;
+      float box_height = 300 / distance_to_entity;
 
-      // Scale based on the resolution it works nicely with
-      float referenceWidth = 887;
-      float referenceHeight = 503;
-      screenPos.x *= referenceWidth;
-      screenPos.y *= referenceHeight;
+      Color box_color = Color.red;
+      float box_thickness = 1f;
 
-      // Calculate the size of the box based on the distance
-      float distanceToEntity = distance(entity_position);
-      Vector2 boxSize = new Vector2(50, 50) / distanceToEntity; // Adjust as needed
-
-      // Set the color for the box
-      Color boxColor = Color.red; // Change as needed
-
-      // Correct the position to center the box
-      Vector2 correctedPos = new Vector2(screenPos.x - boxSize.x / 2, referenceHeight - screenPos.y - boxSize.y / 2);
-
-      // Check if the entity is within the screen
-      if (correctedPos.x > 0 && correctedPos.x < referenceWidth && correctedPos.y > 0 &&
-          correctedPos.y < referenceHeight)
+      if (screen_pos.x > 0 && screen_pos.x < Screen.width && screen_pos.y > 0 && screen_pos.y < Screen.height)
       {
-        // Draw the box around the entity
-        lethal_to_company.render.draw_box(correctedPos, boxSize, boxColor);
+        render.draw_box_outline(
+          new Vector2(screen_pos.x - box_width / 2, screen_pos.y - box_height / 2), box_width,
+          box_height,
+          box_color, box_thickness);
       }
     }
   }
