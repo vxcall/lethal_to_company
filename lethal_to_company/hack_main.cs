@@ -53,13 +53,14 @@ namespace lethal_to_company
 
       //GUI.Label(new Rect(100, 100, 500, 30), $"{camera.transform.forward.x}{camera.transform.forward.y}{camera.transform.forward.z}" );
 
-      GUI.Label(new Rect(100, 120, 500, 30), $"items count: {grabbable_objects.Length}");
-      int index = 1;
       foreach (var go in grabbable_objects)
       {
-        GUI.Label(new Rect(100, 150 + (20 * index), 500, 30), $"{go.itemProperties.itemName} X: {go.transform.position.x}, Y: {go.transform.position.y}, Z: {go.transform.position.z}");
-        esp(go.transform.position);
-        index++;
+        esp(go.transform.position, Color.green);
+      }
+
+      foreach (var enemy in enemies)
+      {
+        esp(enemy.transform.position, Color.red);
       }
 
     }
