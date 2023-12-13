@@ -8,6 +8,10 @@ Press ESC and open menu once to get GUI rendered because I think is the renderin
 It's currently only ESP for items but i'll implement it for enemy and players too.
 ![image](https://github.com/pseuxide/lethal_to_company/assets/33578715/56579cc6-3956-4d17-8698-503e2ed528c3)
 
+#prerequisite
+- Inject the dll using [SharpMonoInjector](https://github.com/warbler/SharpMonoInjector). the info it needs to work is following:
+  - class name: loader
+  - method name: load
 
 # tested version
 tested with game version v40 and v45 (You can check it in the game's main menu)
