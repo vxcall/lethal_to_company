@@ -5,8 +5,8 @@ Since this is my first time tackling Unity game, I dont guarantee the quality of
 Press ESC and open menu once to get GUI rendered because I think is the rendering function kicks in after that.
 
 # Progress
-It's currently only ESP for items but i'll implement it for enemy and players too.
-![image](https://github.com/pseuxide/lethal_to_company/assets/33578715/56579cc6-3956-4d17-8698-503e2ed528c3)
+![image](https://github.com/pseuxide/lethal_to_company/assets/33578715/3cba1b1e-26a8-43ab-98f6-0a1f57900019)
+
 
 #prerequisite
 - Inject the dll using [SharpMonoInjector](https://github.com/warbler/SharpMonoInjector). the info it needs to work is following:
