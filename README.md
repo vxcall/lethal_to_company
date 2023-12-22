@@ -1,6 +1,7 @@
 # lethal_to_company
+I've wrote [a shitty post](https://pseuxide.github.io/posts/diving_into_the_world_of_modding_unity_games/) about this repo to remember things.
+
 A wall hack cheat / hack / mod for Lethal Company.
-I write [a shitty post](https://pseuxide.github.io/posts/diving_into_the_world_of_modding_unity_games/) about this repo to remember things.
 Since this is my first time tackling Unity game, I dont guarantee the quality of code or performance.
 
 Press ESC and open menu once to get GUI rendered because I think is the rendering function kicks in after that.
