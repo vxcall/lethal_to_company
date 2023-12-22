@@ -4,7 +4,10 @@ Since this is my first time tackling Unity game, I dont guarantee the quality of
 
 Press ESC and open menu once to get GUI rendered because I think is the rendering function kicks in after that.
 
-## Progress
+## Contents
+the wallhack works for 
+- Enemy
+- Items
 <img width="500" height="300" src="https://github.com/pseuxide/lethal_to_company/assets/33578715/3cba1b1e-26a8-43ab-98f6-0a1f57900019" />
 
 
