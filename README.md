@@ -1,5 +1,5 @@
 # lethal_to_company
-I've wrote [a blog post](https://vxcall.github.io/posts/exploring_the_fundamentals_of_hacking_unity_games/) about this repo to remember things.
+I've wrote [a blog post](https://vxcall.github.io/posts/the-fundamentals-of-hacking-unity/) about this repo to remember things.
 
 A wall hack cheat / hack / mod for Lethal Company.
 Since this is my first time tackling Unity game, I dont guarantee the quality of code or performance.
